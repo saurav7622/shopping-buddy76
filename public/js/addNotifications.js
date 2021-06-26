@@ -17,7 +17,7 @@ export const addNotifications=async(url,duration)=>{
 try{
     const res=await axios({
         method:'POST',
-        url:'http://127.0.0.1:3000/api/v1/addNotifications',
+        url:'/api/v1/addNotifications',
         data:{
             url,
             duration

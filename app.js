@@ -10,6 +10,7 @@ const viewRouter = require('./routes/viewRoutes');
 const cookieParser=require('cookie-parser');
 const User=require('./models/userModel');
 const cors=require('cors');
+const compression=require('compression');
 const request=require('request-promise');
 const cheerio=require('cheerio');
 const axios=require("axios");
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
   }
   app.use(cors());
+  app.use(compression());
 const userRouter=require('./routes/userRoutes');
 //1.MIDDLEWARES
 app.use(morgan('dev'));

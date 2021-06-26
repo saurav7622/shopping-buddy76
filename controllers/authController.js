@@ -463,7 +463,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
     
         const users= await axios({
             method:'GET',
-            url:'http://127.0.0.1:3000/api/v1/getAllUsers',
+            url:'/api/v1/getAllUsers',
             responseType:'json'
         });
        // console.log(users);
@@ -474,7 +474,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
             try{
        const res=await axios({
           method:'POST',
-          url:'http://127.0.0.1:3000/api/v1/trackPrice',
+          url:'/api/v1/trackPrice',
           data:{
               url:ob.url,
               price:ob.price,
