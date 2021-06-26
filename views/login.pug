@@ -1,0 +1,51 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='x-ua-compatible' content='ie-edge')
+  link(rel='stylesheet' href='./css/style.css')
+  link(rel='shortcut icon' type='image/png' href='./img/pikachu.png')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Pattaya&display=swap' rel='stylesheet')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap' rel='stylesheet')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Anton&family=Bree+Serif&family=Lobster&family=Yanone+Kaffeesatz:wght@400;500&display=swap' rel='stylesheet')
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  if user 
+        
+
+    include _header_user
+
+    include _user_home
+    
+    //-script(src="https://unpkg.com/axios/dist/axios.min.js")
+    //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
+    //-script(src="/js/toggle.js")
+    //-script(src="/js/addNotifications.js")
+    //-script(type="module" src="/js/notifyController.js")
+    script(src="/js/bundle.js")
+  else
+  
+    body(style="background-color:#dddfd4")
+      header(style='height:40px;background-color:black;')
+        h1(style="position:absolute;top:5px;left:545px;font-family: 'Pattaya', sans-serif;color:#66ff33;font-size:170%") Shopping Buddy
+      .modal2
+        h1(style='position:absolute;top:15px;left:20px;font-size:25px;') Log In
+        form(autocomplete='off' id="log-in-button")
+          .form-group
+            input#log-in-email.form-control(autocomplete='off' type='email' name='existing-email' placeholder='Email' style='position:relative;left:-70px;top:-26px;width:400px;height:40px;font-size:15px;')
+          .form-group
+            input#log-in-password.form-control(autocomplete='off' placeholder='Password' type='password' name='existing-password' style='position:relative;left:-70px;top:-10px;width:400px;height:40px;font-size:15px;')
+          input.btn.btn-success(type='submit' name='submit' style='position:relative;top:10px;width:100px;height:34px;font-size:15px;left:80px;')
+          p(style='position:relative;top:20px;font-size:17px;left:-60px;')
+            | If you do not have an account,please 
+            span(style='position:relative;top:-25px;left:280px;') sign up.
+          a(href='/forgotPasswordForm' style='position:relative;top:-10px;left:260px;color:orange;font-size:17px;') Forgot Password?
+
+          
+          //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
+          //-script(src="/js/login.js")
+          //-script(type="module" src="/js/notifyController.js")
+          script(src="/js/bundle.js")

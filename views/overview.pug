@@ -1,0 +1,56 @@
+doctype html
+html 
+  head 
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='x-ua-compatible' content='ie-edge')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='shortcut icon' type='image/png' href='/img/pikachu.png')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Pattaya&display=swap')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Anton&family=Bree+Serif&family=Lobster&family=Yanone+Kaffeesatz:wght@400;500&display=swap')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous")
+    title Shopping Buddy
+  body 
+    if user
+
+      body(style="background-color:#fae596;width:100%;height:100%")
+
+        include _header_user
+
+        include _user_home
+
+        //-script(src="https://unpkg.com/axios/dist/axios.min.js")
+        //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
+        //-script(src="/js/toggle.js")
+        //-script(src="/js/addNotifications.js")
+        //-script(type="module" src="/js/notifyController.js")
+        script(src="/js/bundle.js")
+      
+    else
+
+      include _header
+
+      include _projectinfo
+
+      //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
+      //-script( type="module" src="/js/notifyController.js")
+      script(src="/js/bundle.js")
+
+      
+   
+
+    
+
+
+    
+    
+
+
+
+
+
+    

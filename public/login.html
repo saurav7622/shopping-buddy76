@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="./img/pikachu.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bree+Serif&family=Lobster&family=Yanone+Kaffeesatz:wght@400;500&display=swap" rel="stylesheet">
+         <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Log In</title>
+    <body style="background-color:#dddfd4;">
+            <header style="height:40px;background-color:black;">
+            <h1  style="position:absolute;top:5px;font-family: Times New Roman (serif);color:#FA292A;font-size:110%;" class="btn btn--sign" >Sign Up</h1> 
+              <h1 style="position:absolute;top:5px;left:545px;font-family: 'Pattaya', sans-serif;color:#66ff33;font-size:170%">Shopping Buddy</h1>
+              <h1  style="position:absolute;right:5px;top:5px;font-family: Times New Roman (serif);color:#CDDF22;font-size:110%;" class="btn btn--log" >Log In</h1>
+            </header>
+            <div class="modal2">
+	 
+                
+                <h1 style="position:absolute;top:15px;left:20px;font-size:25px;">Log In</h1>
+                
+          <form autocomplete="off">
+            <div class="form-group">
+              
+              <input autocomplete="off" class="form-control" type="email" name="existing-email"  placeholder="Email" style="position:relative;left:-70px;top:-26px;width:400px;height:40px;font-size:15px;" id="form4" >
+              
+            </div>
+           <div class="form-group">
+              
+              <input  class="form-control" autocomplete="off"  placeholder="Password" type="password" name ="existing-password" style="position:relative;left:-70px;top:-10px;width:400px;height:40px;font-size:15px;" id="form5" >
+              
+            </div>
+          
+            
+            <input type="submit" name="submit" class="btn btn-success" style="position:relative;top:10px;width:100px;height:34px;font-size:15px;left:80px;"> 
+             <p  style="position:relative;top:20px;font-size:17px;left:-60px;" >If you do not have an account,please <span style="position:relative;top:-25px;left:280px;">sign up.</span></p>
+             <p type="button" class="forgot-btn" style="position:relative;top:-10px;left:260px;color:orange;font-size:17px;">Forgot Password?</p>
+          </form>
+          
+              </div>
+              <div class="forgot-password-form hidden">
+	 
+                <button class="close-modal" style="position:absolute;top:-5px;right:5px;color: #333;cursor: pointer;border: none;background: none;font-size:40px;">&times;</button>
+                <h1 style="position:absolute;top:15px;left:120px;font-size:25px;">Reset Password</h1>
+                <p style="position:absolute;top:55px;left:20px;font-size:18px;">A password reset link will be sent to the following email id</p>
+          <form autocomplete="off">
+            <div class="form-group">
+              
+              <input autocomplete="off" class="form-control" type="email" name="forgot-email"  placeholder="Email" style="position:relative;left:-80px;top:30px;width:400px;height:40px;font-size:15px;" id="forgot-email" >
+              <input autocomplete="off" type="submit" class="btn btn-info" style="position:relative;;width:300px;height:34px;font-size:15px;left:-30px;top:55px;"value="Send Password Reset Link" name="send" id="send">
+            </div>
+            </form>
+            </div>
+              <script type="text/javascript">
+              
+               const modal = document.querySelector('.forgot-password-form');
+               const overlay = document.querySelector('.overlay');
+               const btnCloseModal = document.querySelector('.close-modal');
+               const btnOpenModal = document.querySelector('.forgot-btn');
+               if(btnOpenModal)
+               btnOpenModal.addEventListener('click', function () {
+                 alert("button clicked")
+                modal1.classList.remove('hidden');
+              document.querySelector(".modal").style.display='block';
+                overlay.classList.remove('hidden');
+              });
+              const closeModal = function () {
+              modal.classList.add('hidden');
+              document.querySelector(".modal").style.opacity='0';
+              overlay.classList.add('hidden');
+              document.querySelector("#forgot-email").value='';
+              };
+              btnCloseModal.addEventListener('click', closeModal);
+              </script>
+    </body>
