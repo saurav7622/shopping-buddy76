@@ -9,7 +9,7 @@ const dotenv=require('dotenv');
 const viewRouter = require('./routes/viewRoutes');
 const cookieParser=require('cookie-parser');
 const User=require('./models/userModel');
-const cors=require('cors');
+//const cors=require('cors');
 const compression=require('compression');
 const request=require('request-promise');
 const cheerio=require('cheerio');
@@ -20,7 +20,7 @@ app.set('views',path.join(__dirname,'views'));
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
   }
-  app.use(cors());
+  //app.use(cors());
   app.use(compression());
 const userRouter=require('./routes/userRoutes');
 //1.MIDDLEWARES
