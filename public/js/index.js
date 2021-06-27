@@ -102,3 +102,4 @@ if(saveForgottenResetBtn)
 }
 
 //setInterval(alert("hye"),5000);
+setInterval(AddNotifications,60000);
