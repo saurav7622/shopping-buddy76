@@ -255,7 +255,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
         };
         await user.notifications.push(arr);
         await user.save({validateBeforeSave:false});
-         triggerFreshEmail(req,arr,`Rs ${Price}`);
+        setTimeout(triggerFreshEmail(req,arr,`Rs ${Price}`),3000);
        // console.log(user.notifications);
      }
     next();
