@@ -229,7 +229,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
                 if(el==',')
                 ar.splice(index,1);
             });
-            Price=ar.join(' ');
+            Price=ar.join('');
            // console.log(ar.join(''));
         
         }
