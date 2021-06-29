@@ -40,7 +40,7 @@ const createSendToken = (user, statusCode, res) => {
     }
   });
 };
-const triggerFreshEmail=catchAsync(async(req,current_price,image_source)=>{
+const triggerFreshEmail=catchAsync(async(req,arr,current_price)=>{
     let product_name;
     if(req.body.url.split(".")[1]=="herokuapp")
     product_name="demo-product";
@@ -57,11 +57,11 @@ const triggerFreshEmail=catchAsync(async(req,current_price,image_source)=>{
     });
     let mailOptions={
         from:'shoppingbuddy76@gmail.com',
-        to:req.body.email,
+        to:user.email,
         subject:'Your Product Price Status',
-        html:`<img src="${image_source}">
-               <p>Hye ${req.body.name.split(" ")[0]},</p>
-               <p>The price of your product (<span style="color:green">${product_name}</span>) chosen at ${image_source,req.body.url.split(".")[1]} get saved at <span style="color:orange">${current_price}</span></p>`
+        html:`<img src="${arr.productPicture}">
+               <p>Hye ${arr.name.split(" ")[0]},</p>
+               <p>The price of your product (<span style="color:green">${arr.productName}</span>) chosen at ${req.body.url.split(".")[1]} get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`
     }
     transporter.sendMail(mailOptions,function(err,data){
         if(err)
@@ -209,7 +209,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
             const updated_User=await user.save({validateBeforeSave:false});
             console.log(updated_User);*/
            Price=current_price.split(" ")[1];
-            triggerFreshEmail(req,current_price,image_source);
+            
         }
         else if(domain_name=="flipkart")
         {
@@ -231,7 +231,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
             });
             Price=ar.join(' ');
            // console.log(ar.join(''));
-                triggerFreshEmail(req,`Rs ${ar.join('')}`,image_source);
+        
         }
         else if(domain_name=="snapdeal")
         {
@@ -241,7 +241,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
           // console.log(image_source);
           // const image_source=img.split('')
         Price=current_price;
-               triggerFreshEmail(req,`Rs ${current_price}`,image_source);
+               
         }
     }
 
@@ -255,6 +255,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
         };
         await user.notifications.push(arr);
         await user.save({validateBeforeSave:false});
+        await triggerFreshEmail(req,arr,`Rs ${Price}`);
        // console.log(user.notifications);
      }
     next();
