@@ -6,35 +6,35 @@ head
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   title Product Page
   link(rel='stylesheet' href='/css/style.css')
+body
   if user
-  #background
-    p(style='text-align:center;font-size:26px;color:blue;text-decoration:underline') Current Status
+    #background
+      p(style='text-align:center;font-size:26px;color:blue;text-decoration:underline') Current Status
 
-    each notification in user.notifications
-      div(style='position:relative;float:left;background-color:white;width:320px;height:400px;margin:45px;z-index:1;')
-        img(style='position:relative;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
-        p(style='position:relative;display:block;text-align:left;color:blue')=`${notification.productName}`
-        h1(style='position:relative;top:10px;font-size:18px;')=`Product available at ${notification.productCompany}`
-        h2(style='position:relative;font-size:18px;top:16px;color:green;')=`Currently available at Rs ${notification.price}`
-        h2(style='position:relative;font-size:18px;top:16px;color:orange;')=`Notification ends in ${notification.duration} days`
+      each notification in user.notifications
+        div(style='position:relative;float:left;background-color:white;width:320px;height:400px;margin:45px;z-index:1;')
+          img(style='position:relative;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
+          p(style='position:relative;display:block;text-align:left;color:blue')=`${notification.productName}`
+          h1(style='position:relative;top:10px;font-size:18px;')=`Product available at ${notification.productCompany}`
+          h2(style='position:relative;font-size:18px;top:16px;color:green;')=`Currently available at Rs ${notification.price}`
+          h2(style='position:relative;font-size:18px;top:16px;color:orange;')=`Notification ends in ${notification.duration} days`
     
-          span#edit-duration
-            img(type='button' src='https://www.pdfzorro.com/Images/IconsFunktionen/pdf-edit.webp' style='width:10%;height:10%')
-        h2(style='position:relative;font-size:18px;top:16px;color:red')
-          | Delete this track 
-          span#delete-track
-            img(type='button' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaGxoK5n3WKH8A9CLYe_qukgV6qYI8w8OG-w&usqp=CAU' style='width:10%;height:10%')
-      script(src="/js/bundle.js")
+            span#edit-duration
+              img(type='button' src='https://www.pdfzorro.com/Images/IconsFunktionen/pdf-edit.webp' style='width:10%;height:10%')
+          h2(style='position:relative;font-size:18px;top:16px;color:red')
+            | Delete this track 
+            span#delete-track
+              img(type='button' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaGxoK5n3WKH8A9CLYe_qukgV6qYI8w8OG-w&usqp=CAU' style='width:10%;height:10%')
+        script(src="/js/bundle.js")
 
   else
-  
-   body
 
-     include _header
 
-     include _projectinfo
+    include _header
+
+    include _projectinfo
 
       //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
       //-script( type="module" src="/js/notifyController.js")
-     script(src="/js/bundle.js")
+    script(src="/js/bundle.js")
 
