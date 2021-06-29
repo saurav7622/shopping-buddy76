@@ -11,12 +11,12 @@ head
 
   each notification in user.notifications
     div(style='position:relative;float:left;background-color:white;width:320px;height:400px;margin:45px;z-index:1;')
-      img(style='position:relative;background-color:#4b072c;width:60%;height:50%;z-index:1;' src='	https://n3.sdlcdn.com/imgs/j/s/o/Snexian-Guru-313-Gold-SDL870621181-1-ca1c3.jpg')
+      img(style='position:relative;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
       p(style='position:relative;display:block;text-align:left')=`${notification.productName}`
-      h1(style='position:relative;top:10px;font-size:18px;') Product available at notification.productCompany
-      h2(style='position:relative;font-size:18px;top:16px;') Currently available at Rs notification.price
-      h2(style='position:relative;font-size:18px;top:16px;')
-        | Notification ends in notification.duration days 
+      h1(style='position:relative;top:10px;font-size:18px;')=`Product available at ${notification.productCompany}`
+      h2(style='position:relative;font-size:18px;top:16px;')=`Currently available at Rs ${notification.price}`
+      h2(style='position:relative;font-size:18px;top:16px;')=`Notification ends in ${notification.duration} days`
+    
         span#edit-duration
           img(type='button' src='https://www.pdfzorro.com/Images/IconsFunktionen/pdf-edit.webp' style='width:10%;height:10%')
       h2(style='position:relative;font-size:18px;top:16px;')
