@@ -78,7 +78,7 @@ margin:5px 0px;
     z-index: 10;
   }
   .modal3 {
-    position: relative;
+    position:fixed;
     top:170px;
     left:410px;
     z-index:2;
