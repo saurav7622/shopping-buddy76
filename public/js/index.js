@@ -7,7 +7,6 @@ import {AddNotifications} from './notifyController.js';
 import {resetPassword} from './updatePassword.js';
 import {forgotPassword} from './ForgotPassword.js';
 import {saveForgotPassword} from './SaveForgotResetPassword.js';
-import  {noScroll}   from './WindowNoScroll.js';
 //import { updatePassword } from '../../controllers/authController';
 //Initializing buttons
 const logInBtn=document.getElementById('log-in-button');
