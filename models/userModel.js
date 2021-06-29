@@ -39,6 +39,16 @@ const userSchema=new mongoose.Schema({
           type: Date,
           default: Date.now
         },
+        productPicture:{
+          type:String,
+        },
+        productCompany:{
+          type:String,
+        },
+        productName:{
+          type:String
+        }
+
       }
     ],
     password:{

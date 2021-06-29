@@ -40,6 +40,41 @@ const createSendToken = (user, statusCode, res) => {
     }
   });
 };
+const triggerFreshEmail=catchAsync(async(req,current_price,image_source)=>{
+    let product_name;
+    if(req.body.url.split(".")[1]=="herokuapp")
+    product_name="demo-product";
+    else if(req.body.url.split(".")[1]=="flipkart"||req.body.url.split(".")[1]=="amazon")
+    product_name=req.body.url.split("/")[3];
+    else if(req.body.url.split(".")[1]=="snapdeal")
+    product_name=req.body.url.split("/")[4];
+    let transporter=nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:process.env.EMAIL,
+            pass:process.env.EMAIL_PASSWORD
+        }
+    });
+    let mailOptions={
+        from:'shoppingbuddy76@gmail.com',
+        to:req.body.email,
+        subject:'Your Product Price Status',
+        html:`<img src="${image_source}">
+               <p>Hye ${req.body.name.split(" ")[0]},</p>
+               <p>The price of your product (<span style="color:green">${product_name}</span>) chosen at ${image_source,req.body.url.split(".")[1]} get saved at <span style="color:orange">${current_price}</span></p>`
+    }
+    transporter.sendMail(mailOptions,function(err,data){
+        if(err)
+        {
+            console.log('Error occurs');
+        }
+        else
+        {
+            console.log("Email sent!!");
+        }
+    });
+
+});
 const triggerEmail=catchAsync(async(req,current_price,image_source)=>{
     let product_name;
     if(req.body.url.split(".")[1]=="herokuapp")
@@ -93,7 +128,6 @@ exports.signup = catchAsync(async (req, res, next) => {
 exports.addNotifications=catchAsync(async(req,res,next)=>{
     let token=req.cookies.jwt;
     var decodedPayload = jwt_decode(token, { payload: true });
-
     //Check if user _id exists
     if(!decodedPayload.id)
     {
@@ -101,7 +135,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
     }
     //Check if any user with the detected id exists
     const user=await User.findOne({_id:decodedPayload.id});
-    
+    const domain_name=req.body.url.split(".")[1];
     if(!user)
     return next(new AppError('No such user with the detected _id exists'));
     //console.log(user.notifications);
@@ -116,10 +150,108 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
          })
      }
      else{
+
+        let product_name;
+        let current_price;
+        let image_source;
+        let img;
+        let Price;
+        if(req.body.url.split(".")[1]=="herokuapp")
+        product_name="demo-product";
+        else if(req.body.url.split(".")[1]=="flipkart"||req.body.url.split(".")[1]=="amazon")
+        product_name=req.body.url.split("/")[3];
+        else if(req.body.url.split(".")[1]=="snapdeal")
+        product_name=req.body.url.split("/")[4];
+
+        if(domain_name=="snapdeal"||domain_name=="flipkart"||domain_name=="herokuapp")
+        {
+        const html=await axios({
+            method:"GET",
+            url:req.body.url,
+        });
+       // console.log(html);
+    
+        const $=cheerio.load(html.data);
+        if(domain_name=="herokuapp")
+        {
+        current_price=$(".myprice").html();
+        image_source='https://image.freepik.com/free-psd/paper-box-mockup_35913-1372.jpg';
+       // console.log(current_price);
+       if(!current_price)
+       return next(newAppError('Please make sure you added the url of product page!!'));
+            /*let transporter=nodemailer.createTransport({
+                service:'gmail',
+                auth:{
+                    user:process.env.EMAIL,
+                    pass:process.env.EMAIL_PASSWORD
+                }
+            });
+            let mailOptions={
+                from:'agarwalsonu6276@gmail.com',
+                to:req.body.obj.email,
+                subject:'Your Product Price Status',
+                text:`Price changed to ${current_price}`
+            }
+            transporter.sendMail(mailOptions,function(err,data){
+                if(err)
+                {
+                    console.log('Error occurs');
+                }
+                else
+                {
+                    console.log("Email sent!!");
+                }
+            });
+            const user=await User.findOne({email:req.body.obj.email});
+            console.log(req.body.index);
+            user.notifications[req.body.index].price=current_price.split(" ")[1]*1;
+            console.log(typeof(current_price.split(" ")[1]*1));
+            const updated_User=await user.save({validateBeforeSave:false});
+            console.log(updated_User);*/
+           Price=current_price.split(" ")[1];
+            triggerFreshEmail(req,current_price,image_source);
+        }
+        else if(domain_name=="flipkart")
+        {
+             current_price=$("._16Jk6d").html();
+            if(!current_price)
+            return next(newAppError('Please make sure you added the url of product page!!'));
+           // console.log(current_price);
+             img=$('div[class="_1iyjIJ"]').html();
+            //console.log(img);
+             image_source=img.split('background-image:url(')[1].split(")")[0];
+            //console.log(image_source);
+            let ar = current_price.split('');
+            //console.log(ar[0]);
+            ar.splice(0,1);
+            
+            ar.forEach((el,index)=>{
+                if(el==',')
+                ar.splice(index,1);
+            });
+            Price=ar.join(' ');
+           // console.log(ar.join(''));
+                triggerFreshEmail(req,`Rs ${ar.join('')}`,image_source);
+        }
+        else if(domain_name=="snapdeal")
+        {
+            current_price=$('span[class="payBlkBig"]').html();
+            img=$('ul[id="bx-slider-left-image-panel"]>li').html();
+            image_source=img.split('"')[9];
+          // console.log(image_source);
+          // const image_source=img.split('')
+        Price=current_price;
+               triggerFreshEmail(req,`Rs ${current_price}`,image_source);
+        }
+    }
+
         let arr={
             url:req.body.url,
             duration:req.body.duration,
-            price:-10
+            productCompany:domain_name,
+            productPicture:image_source,
+            productName:product_name,
+            price:Price*1
         };
         await user.notifications.push(arr);
         await user.save({validateBeforeSave:false});
