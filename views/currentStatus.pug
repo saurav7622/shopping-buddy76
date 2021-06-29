@@ -7,10 +7,7 @@ head
   title Product Page
   link(rel='stylesheet' href='/css/style.css')
 #background
-  nav.navbar.navbar-dark.bg-dark(style='width:100%')
-  .container-fluid
-    a.navbar-brand(style='position:relative;margin:auto' href='#') Current Status
-
+  p(style='text-align:center;font-size:23px') Current Status
 
   each notification in user.notifications
     div(style='position:relative;float:left;background-color:white;width:320px;height:400px;margin:45px;z-index:1;')
