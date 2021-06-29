@@ -26,11 +26,13 @@ head
             img(type='button' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaGxoK5n3WKH8A9CLYe_qukgV6qYI8w8OG-w&usqp=CAU' style='width:10%;height:10%')
       script(src="/js/bundle.js")
   else
-    include _header
+   body
 
-    include _projectinfo
+     include _header
+
+     include _projectinfo
 
       //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
       //-script( type="module" src="/js/notifyController.js")
-    script(src="/js/bundle.js")
+     script(src="/js/bundle.js")
 
