@@ -40,3 +40,8 @@ exports.getForgottenPasswordResetForm=(req,res)=>{
         title:"Reset your forgotten password"
     });
 }
+exports.getCurrentStatus=(req,res)=>{
+    res.status(200).render('currentStatus',{
+     title:'Get Current Status'
+    });
+}
