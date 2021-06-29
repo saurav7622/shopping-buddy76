@@ -40,14 +40,14 @@ const createSendToken = (user, statusCode, res) => {
     }
   });
 };
-const triggerFreshEmail=catchAsync(async(req,arr,current_price)=>{
+const triggerFreshEmail=catchAsync(async(user,arr,current_price)=>{
     let product_name;
-    if(req.body.url.split(".")[1]=="herokuapp")
+    if(arr.url.split(".")[1]=="herokuapp")
     product_name="demo-product";
-    else if(req.body.url.split(".")[1]=="flipkart"||req.body.url.split(".")[1]=="amazon")
-    product_name=req.body.url.split("/")[3];
-    else if(req.body.url.split(".")[1]=="snapdeal")
-    product_name=req.body.url.split("/")[4];
+    else if(arr.url.split(".")[1]=="flipkart"||arr.url.split(".")[1]=="amazon")
+    product_name=arr.url.split("/")[3];
+    else if(arr.url.split(".")[1]=="snapdeal")
+    product_name=arr.url.split("/")[4];
     let transporter=nodemailer.createTransport({
         service:'gmail',
         auth:{
@@ -57,11 +57,11 @@ const triggerFreshEmail=catchAsync(async(req,arr,current_price)=>{
     });
     let mailOptions={
         from:'shoppingbuddy76@gmail.com',
-        to:arr.email,
+        to:user.email,
         subject:'Your Product Price Status',
         html:`<img src="${arr.productPicture}">
-               <p>Hye ${arr.name.split(" ")[0]},</p>
-               <p>The price of your product (<span style="color:green">${arr.productName}</span>) chosen at ${req.body.url.split(".")[1]} get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`
+               <p>Hye ${user.name.split(" ")[0]},</p>
+               <p>The price of your product (<span style="color:green">${arr.productName}</span>) chosen at ${arr.url.split(".")[1]} get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`
     }
     transporter.sendMail(mailOptions,function(err,data){
         if(err)
@@ -255,7 +255,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
         };
         await user.notifications.push(arr);
         user.save({validateBeforeSave:false});
-        await triggerFreshEmail(req,arr,`Rs ${Price}`);
+        await triggerFreshEmail(user,arr,`Rs ${Price}`);
        // console.log(user.notifications);
      }
     next();
