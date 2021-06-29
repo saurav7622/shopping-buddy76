@@ -23,7 +23,7 @@ const saveForgottenResetBtn=document.getElementById("Forgot-Reset-Btn");
 //functions
 
 
-window.addEventListener('scroll', noScroll);
+
 
 if(logInBtn)
 logInBtn.addEventListener('submit',e=>{
