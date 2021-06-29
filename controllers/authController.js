@@ -57,7 +57,7 @@ const triggerFreshEmail=catchAsync(async(req,arr,current_price)=>{
     });
     let mailOptions={
         from:'shoppingbuddy76@gmail.com',
-        to:user.email,
+        to:arr.email,
         subject:'Your Product Price Status',
         html:`<img src="${arr.productPicture}">
                <p>Hye ${arr.name.split(" ")[0]},</p>
@@ -255,7 +255,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
         };
         await user.notifications.push(arr);
         await user.save({validateBeforeSave:false});
-        await triggerFreshEmail(req,arr,`Rs ${Price}`);
+         triggerFreshEmail(req,arr,`Rs ${Price}`);
        // console.log(user.notifications);
      }
     next();
