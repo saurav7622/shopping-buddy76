@@ -107,6 +107,7 @@ if(deleteTrackBtn)
 
    deleteTrackBtn.addEventListener('click',async e=>{
        e.preventDefault();
+       alert("deleting the track")
    document.getElementById("delete-confirmation-form").classList.remove('hidden');    
    overlay.classList.remove('hidden');
    });
