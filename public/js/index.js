@@ -101,9 +101,7 @@ if(saveForgottenResetBtn)
 
     })
 }
-
-if(deleteTrackBtn)
-{
+console.log(deleteTrackBtn);
 
    deleteTrackBtn.forEach((el,i)=>{
        el.addEventListener('click',async e=>{
@@ -113,7 +111,7 @@ if(deleteTrackBtn)
    //overlay.classList.remove('hidden');
    })
 });
-}
+
 
 //setInterval(alert("hye"),5000);
 setInterval(AddNotifications,60000);
