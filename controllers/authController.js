@@ -633,6 +633,6 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
 }
  };
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotifications,600000);
+setInterval(triggerNotifications,20000);
 
 
