@@ -19,7 +19,7 @@ const tryBtn=document.getElementById("try");
 const resetBtn=document.querySelector('#Reset-Btn');
 const sendResetLink=document.getElementById("send-forgot-reset-link");
 const saveForgottenResetBtn=document.getElementById("Forgot-Reset-Btn");
-const deleteTrackBtn=document.querySelector("delete-btn");
+const deleteTrackBtn=document.querySelector(".delete-btn");
 const overlay = document.querySelector('.overlay');
 //functions
 
