@@ -25,6 +25,7 @@ const userSchema=new mongoose.Schema({
       {
         url:{
           type:String,
+          required:[true,'Please provide the url'],
           default:'https://www.google.com'
         },
         duration:{
