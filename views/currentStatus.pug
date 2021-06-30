@@ -12,7 +12,7 @@ body
       p(style='text-align:center;font-size:26px;color:blue;text-decoration:underline') Current Status
 
       each notification in user.notifications
-        div(style='position:relative;float:left;background-color:white;width:330px;height:420px;margin:45px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
+        div(style='position:relative;float:left;background-color:white;width:350px;height:450px;margin:45px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
           img(style='position:relative;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
           p(style='position:relative;display:block;text-align:left;color:blue')=`${notification.productName}`
           h1(style='position:relative;top:10px;font-size:18px;')=`Product available at ${notification.productCompany}`
