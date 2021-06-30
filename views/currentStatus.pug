@@ -15,17 +15,14 @@ body
       div(class="hidden" id="delete-confirmation-form" style="position:fixed;width:350px;height:250px;z-index:10;background-color:white;top: 50%;left: 50%;transform: translate(-50%, -50%);")
 
       each notification,index in user.notifications
-        div(style='position:relative;float:left;background-color:white;width:350px;height:450px;margin:45px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
+        div(style='position:relative;float:left;background-color:white;width:350px;height:420px;margin:45px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
           img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
           p(style='position:relative;display:block;text-align:left;color:blue')=`${notification.productName}`
-          h1(style='position:relative;top:10px;font-size:18px;')=`Product chosen at ${notification.productCompany}`
-          h2(style='position:relative;font-size:18px;top:16px;')=`Currently available at Rs ${notification.price}`
-          h2(style='position:relative;font-size:18px;top:16px;')=`Notification ends in ${notification.duration} days `
+          h1(style='position:relative;top:10px;font-size:20px;')=`Product chosen at ${notification.productCompany}`
+          h2(style='position:relative;font-size:18px;top:25px;')=`Currently available at Rs ${notification.price}`
+          h2(style='position:relative;font-size:18px;top:25px;')=`Notification ends in ${notification.duration} days `
     
-            span#edit-duration
-              img(type='button' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx3O6eOktEmieMm0mLq7zZd1ce-p4SPVehIQ&usqp=CAU' style='width:10%;height:10%')
-          h2(type="button" style='position:relative;font-size:18px;top:16px;color:red;'  id=`delete-track-${index}`)
-            | Delete this track&nbsp; 
+
 
         script(src="/js/bundle.js")
 
