@@ -253,6 +253,10 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
             productName:product_name,
             price:Price*1
         };
+        if(!arr.url)
+        return next(newAppError('Please provide the url'));
+        if(domain_name!="snapdeal"&&domain_name!="herokuapp"&&domain_name!="flipkart")
+        return next(newAppError('Please provide the correct url'));
         await user.notifications.push(arr);
         user.save({validateBeforeSave:false});
         await triggerFreshEmail(user,arr,`Rs ${Price}`);
