@@ -30,6 +30,7 @@ if(deleteTrack0){
     deleteTrack0.addEventListener('click',e=>{
         e.preventDefault();
         alert(document.querySelector('.no-of-buttons').textContent);
+        return;
     })
 }
 
