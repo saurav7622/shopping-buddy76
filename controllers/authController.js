@@ -603,8 +603,8 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
             url:'/api/v1/getAllUsers',
             responseType:'json'
         });
-       // console.log(users);
-    
+        console.log("hyeeeeeeeeeeeeeeeeee");
+         console.log(users);
         const URL='https://demo-server21.herokuapp.com/';
         users.data.data.users.forEach(obj=>{
           obj.notifications.forEach(async(ob,index)=>{
@@ -633,6 +633,6 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
 }
  };
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotifications,60*1000);
+setInterval(triggerNotifications,20000);
 
 
