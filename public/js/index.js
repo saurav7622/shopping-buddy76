@@ -12,14 +12,14 @@ import {saveForgotPassword} from './SaveForgotResetPassword.js';
 const logInBtn=document.getElementById('log-in-button');
 const signUpBtn=document.getElementById('sign-up-button');
 const notifyMeBtn=document.querySelector('.notify-me-btn');
-const sideBarBtn=document.getElementById("sidebar")
+const sideBarBtn=document.getElementById("sidebar");
 const logOutBtn=document.querySelector('.log-out-btn');
 const toggleBtn=document.querySelector('.toggle-btn');
 const tryBtn=document.getElementById("try");
 const resetBtn=document.querySelector('#Reset-Btn');
 const sendResetLink=document.getElementById("send-forgot-reset-link");
 const saveForgottenResetBtn=document.getElementById("Forgot-Reset-Btn");
-const deleteTrackBtn=document.getElementById("delete-track");
+const deleteTrackBtn=document.querySelector("delete-btn");
 const overlay = document.querySelector('.overlay');
 //functions
 
@@ -105,12 +105,14 @@ if(saveForgottenResetBtn)
 if(deleteTrackBtn)
 {
 
-   deleteTrackBtn.addEventListener('click',async e=>{
+   deleteTrackBtn.forEach((el,i)=>{
+       el.addEventListener('click',async e=>{
        e.preventDefault();
-       alert("deleting the track")
-   document.getElementById("delete-confirmation-form").classList.remove('hidden');    
-   overlay.classList.remove('hidden');
-   });
+       alert(`deleting the track no ${i}`)
+   //document.getElementById("delete-confirmation-form").classList.remove('hidden');    
+   //overlay.classList.remove('hidden');
+   })
+});
 }
 
 //setInterval(alert("hye"),5000);
