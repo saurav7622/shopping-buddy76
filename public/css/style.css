@@ -165,7 +165,7 @@ margin:5px 0px;
  
 
 }
-h2:hover{
+h2#delete-track:hover{
   text-decoration:underline;
 }
   
