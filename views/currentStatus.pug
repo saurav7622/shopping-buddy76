@@ -9,9 +9,9 @@ head
 body
   if user
     .overlay.hidden
-    #background
+    #background.tracks
       p(style='text-align:center;font-size:26px;color:blue;text-decoration:underline') Current Status
-      div(class="hidden tracks" id="delete-confirmation-form" style="position:fixed;width:350px;height:250px;z-index:10;background-color:white;top: 50%;left: 50%;transform: translate(-50%, -50%);")
+      div(class="hidden" id="delete-confirmation-form" style="position:fixed;width:350px;height:250px;z-index:10;background-color:white;top: 50%;left: 50%;transform: translate(-50%, -50%);")
 
       each notification,index in user.notifications
         div(style='position:relative;float:left;background-color:white;width:350px;height:450px;margin:45px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
