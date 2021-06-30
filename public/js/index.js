@@ -102,7 +102,7 @@ if(saveForgottenResetBtn)
     })
 }
 console.log(deleteTrackBtn);
-
+console.log(user);
    deleteTrackBtn.forEach((el,i)=>{
        el.addEventListener('click',async e=>{
        e.preventDefault();
