@@ -21,10 +21,17 @@ const sendResetLink=document.getElementById("send-forgot-reset-link");
 const saveForgottenResetBtn=document.getElementById("Forgot-Reset-Btn");
 const tracks=document.querySelector(".tracks");
 const overlay = document.querySelector('.overlay');
+const noOfButtons=document.querySelector('.no-of-buttons');
+const deleteTrack0=document.getElementById('delete-track-0');
 //functions
 
 
-
+if(deleteTrack0){
+    deleteTrack0.addEventListener('click',e=>{
+        e.preventDefault();
+        alert(document.querySelector('.no-of-buttons').textContent);
+    })
+}
 
 if(logInBtn)
 logInBtn.addEventListener('submit',e=>{
