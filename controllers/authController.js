@@ -75,14 +75,14 @@ const triggerFreshEmail=catchAsync(async(user,arr,current_price)=>{
     });
 
 });
-const triggerEmail=catchAsync(async(req,current_price,image_source)=>{
+const triggerEmail=catchAsync(async(data,current_price,image_source)=>{
     let product_name;
-    if(req.body.url.split(".")[1]=="herokuapp")
+    if(data.url.split(".")[1]=="herokuapp")
     product_name="demo-product";
-    else if(req.body.url.split(".")[1]=="flipkart"||req.body.url.split(".")[1]=="amazon")
-    product_name=req.body.url.split("/")[3];
-    else if(req.body.url.split(".")[1]=="snapdeal")
-    product_name=req.body.url.split("/")[4];
+    else if(data.url.split(".")[1]=="flipkart"||data.url.split(".")[1]=="amazon")
+    product_name=data.url.split("/")[3];
+    else if(data.url.split(".")[1]=="snapdeal")
+    product_name=data.url.split("/")[4];
     let transporter=nodemailer.createTransport({
         service:'gmail',
         auth:{
@@ -92,11 +92,11 @@ const triggerEmail=catchAsync(async(req,current_price,image_source)=>{
     });
     let mailOptions={
         from:'shoppingbuddy76@gmail.com',
-        to:req.body.obj.email,
+        to:data.obj.email,
         subject:'Your Product Price Status',
         html:`<img src="${image_source}">
-               <p>Hye ${req.body.obj.name.split(" ")[0]},</p>
-               <p>The price of your product (<span style="color:green">${product_name}</span>) chosen at ${image_source,req.body.url.split(".")[1]} changed to <span style="color:orange">${current_price}</span></p>`
+               <p>Hye ${data.obj.name.split(" ")[0]},</p>
+               <p>The price of your product (<span style="color:green">${product_name}</span>) chosen at ${image_source,data.url.split(".")[1]} changed to <span style="color:orange">${current_price}</span></p>`
     }
     transporter.sendMail(mailOptions,function(err,data){
         if(err)
@@ -108,9 +108,9 @@ const triggerEmail=catchAsync(async(req,current_price,image_source)=>{
             console.log("Email sent!!");
         }
     });
-    const user=await User.findOne({email:req.body.obj.email});
+    const user=await User.findOne({email:data.obj.email});
     //console.log(req.body.index);
-    user.notifications[req.body.index].price=current_price.split(" ")[1]*1;
+    user.notifications[data.index].price=current_price.split(" ")[1]*1;
     //console.log(typeof(current_price.split(" ")[1]*1));
     const updated_User=await user.save({validateBeforeSave:false});
     //console.log(updated_User);
@@ -264,7 +264,7 @@ exports.addNotifications=catchAsync(async(req,res,next)=>{
      }
     next();
 });
-exports.trackPrice=catchAsync(async(req,res,next)=>{
+/*exports.trackPrice=catchAsync(async(req,res,next)=>{
    // console.log(Date.now());
    // console.log(Date.parse(req.body.ob.createdAt))
     if(Date.now()>=Date.parse(req.body.ob.createdAt)+req.body.ob.duration*24*60*60*1000)
@@ -322,7 +322,7 @@ exports.trackPrice=catchAsync(async(req,res,next)=>{
         user.notifications[req.body.index].price=current_price.split(" ")[1]*1;
         console.log(typeof(current_price.split(" ")[1]*1));
         const updated_User=await user.save({validateBeforeSave:false});
-        console.log(updated_User);*/
+        console.log(updated_User);
        
         triggerEmail(req,current_price,image_source);
     }
@@ -379,9 +379,9 @@ exports.trackPrice=catchAsync(async(req,res,next)=>{
         {
             triggerEmail(req,`$ ${current_price.split('$')[1]}`,"null");
         }
-    }*/
+    }
    next();
-})
+})*/
 
 exports.login=catchAsync(async(req,res,next)=>{
     const {email,password}=req.body;
@@ -595,7 +595,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
     createSendToken(user, 200, res);
 });
 
- const triggerNotifications=async()=>{
+ /*const triggerNotifications=async()=>{
     try{
     
         const users= await axios({
@@ -631,8 +631,158 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
 {
     console.log(err);
 }
- };
+ };*/
+ exports.trackPriceFromBackend=catchAsync(async(data)=>{
+    // console.log(Date.now());
+    // console.log(Date.parse(req.body.ob.createdAt))
+     if(Date.now()>=Date.parse(data.ob.createdAt)+data.ob.duration*24*60*60*1000)
+     {
+     data.obj.notifications.splice(data.index,1);
+     const user=await User.findById(data.obj._id);
+     user.notifications.splice(data.index,1);
+     await user.save({validateBeforeSave:false});
+     }
+     const domain_name=data.url.split(".")[1];
+     //console.log(domain_name);
+     if(domain_name=="snapdeal"||domain_name=="flipkart"||domain_name=="herokuapp")
+     {
+     const html=await axios({
+         method:"GET",
+         url:data.url,
+     });
+    // console.log(html);
+ 
+     const $=cheerio.load(html.data);
+     if(domain_name=="herokuapp")
+     {
+     const current_price=$(".myprice").html();
+     const image_source='https://image.freepik.com/free-psd/paper-box-mockup_35913-1372.jpg';
+    // console.log(current_price);
+    if(!current_price)
+    return next(newAppError('Please make sure you added the url of product page!!'));
+     if(current_price.split(" ")[1]*1!=data.price)
+     {
+         /*let transporter=nodemailer.createTransport({
+             service:'gmail',
+             auth:{
+                 user:process.env.EMAIL,
+                 pass:process.env.EMAIL_PASSWORD
+             }
+         });
+         let mailOptions={
+             from:'agarwalsonu6276@gmail.com',
+             to:req.body.obj.email,
+             subject:'Your Product Price Status',
+             text:`Price changed to ${current_price}`
+         }
+         transporter.sendMail(mailOptions,function(err,data){
+             if(err)
+             {
+                 console.log('Error occurs');
+             }
+             else
+             {
+                 console.log("Email sent!!");
+             }
+         });
+         const user=await User.findOne({email:req.body.obj.email});
+         console.log(req.body.index);
+         user.notifications[req.body.index].price=current_price.split(" ")[1]*1;
+         console.log(typeof(current_price.split(" ")[1]*1));
+         const updated_User=await user.save({validateBeforeSave:false});
+         console.log(updated_User);*/
+        
+         triggerEmail(data,current_price,image_source);
+     }
+     }
+     else if(domain_name=="flipkart")
+     {
+         const current_price=$("._16Jk6d").html();
+         if(!current_price)
+         return next(newAppError('Please make sure you added the url of product page!!'));
+        // console.log(current_price);
+         let img=$('div[class="_1iyjIJ"]').html();
+         //console.log(img);
+         const image_source=img.split('background-image:url(')[1].split(")")[0];
+         //console.log(image_source);
+         let ar = current_price.split('');
+         //console.log(ar[0]);
+         ar.splice(0,1);
+         
+         ar.forEach((el,index)=>{
+             if(el==',')
+             ar.splice(index,1);
+         });
+        // console.log(ar.join(''));
+         if(ar.join('')*1!=data.price)
+         {
+             triggerEmail(data,`Rs ${ar.join('')}`,image_source);
+         }
+     }
+     else if(domain_name=="snapdeal")
+     {
+        const current_price=$('span[class="payBlkBig"]').html();
+        const img=$('ul[id="bx-slider-left-image-panel"]>li').html();
+        const image_source=img.split('"')[9];
+       // console.log(image_source);
+       // const image_source=img.split('')
+     
+        if(current_price*1!=data.price)
+        {
+            triggerEmail(data,`Rs ${current_price}`,image_source);
+        }
+     }
+ }
+   
+     /*else if(domain_name=='amazon')
+     {
+         
+        const current_price=await nightmare.goto(req.body.url)
+                                         .wait("#priceblock_ourprice")
+                                         .evaluate(()=>document.getElementById("priceblock_ourprice").innerText)
+                                         .end();
+       console.log(current_price);
+     
+       if(current_price.split('$')[1]*1!=req.body.price)
+         {
+             triggerEmail(req,`$ ${current_price.split('$')[1]}`,"null");
+         }
+     }*/
+    
+ });
+const triggerNotificationsFromBackend=async()=>{
+    try{
+    
+        const users= await User.find();
+        
+         
+    
+        users.data.data.users.forEach(obj=>{
+          obj.notifications.forEach(async(ob,index)=>{
+            try{
+       
+          let data={
+              url:ob.url,
+              price:ob.price,
+              obj,
+              ob,
+              index,
+          };
+    
+      await trackPriceFromBackend(data);
+    }
+    catch(err)
+    {
+      console.log(err);
+    }
+    });
+  });
+}catch(err)
+{
+    console.log(err);
+}    
+}
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotifications,20000);
+setInterval(triggerNotificationsFromBackend,20000);
 
 

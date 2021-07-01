@@ -3,7 +3,7 @@ import {login} from './login';
 import {logout} from './logout';
 import {signup} from './signup';
 import {addNotifications} from './addNotifications';
-import {AddNotifications} from './notifyController.js';
+//import {AddNotifications} from './notifyController.js';
 import {resetPassword} from './updatePassword.js';
 import {forgotPassword} from './ForgotPassword.js';
 import {saveForgotPassword} from './SaveForgotResetPassword.js';
@@ -54,7 +54,7 @@ notifyMeBtn.addEventListener('click',e=>{
 const url=document.getElementById("url").value;
 const duration=document.getElementById("duration").value;
 addNotifications(url,duration);
-setTimeout(AddNotifications,10000);
+//setTimeout(AddNotifications,10000);
 });
 
             if(toggleBtn)
@@ -107,4 +107,4 @@ if(saveForgottenResetBtn)
 
 
 //setInterval(alert("hye"),5000);
-setInterval(AddNotifications,6000000);
+//setInterval(AddNotifications,6000000);

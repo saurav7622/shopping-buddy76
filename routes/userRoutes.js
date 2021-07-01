@@ -11,7 +11,7 @@ router.post('/login', authController.login);
 router.get('/logout',authController.logout);
 router.post('/addNotifications',authController.addNotifications);
 router.get('/getAllUsers',userController.getAllUsers);
-router.post('/trackPrice',authController.trackPrice);
+//router.post('/trackPrice',authController.trackPrice);
 router.patch('/updateMyPassword',authController.updatePassword);
 router.post('/forgotPassword',authController.forgotPassword);
 router.get('/resetPassword/:token',viewsController.getForgottenPasswordResetForm);
