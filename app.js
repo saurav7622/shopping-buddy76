@@ -14,6 +14,8 @@ const compression=require('compression');
 const request=require('request-promise');
 const cheerio=require('cheerio');
 const axios=require("axios");
+
+app.enable('trust proxy');
 dotenv.config({path:'./config.env'});
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'));
