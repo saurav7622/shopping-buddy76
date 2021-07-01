@@ -756,7 +756,8 @@ const triggerNotificationsFromBackend=async()=>{
     
         const users= await User.find();
         
-         
+         console.log(users);
+         console.log("salaaaaaaaaa");
     
         users.data.data.users.forEach(obj=>{
           obj.notifications.forEach(async(ob,index)=>{
