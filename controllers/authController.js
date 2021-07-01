@@ -785,6 +785,6 @@ const triggerNotificationsFromBackend=async()=>{
 }    
 }
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotificationsFromBackend,40000);
+setInterval(triggerNotificationsFromBackend,10*60*1000);
 
 
