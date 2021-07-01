@@ -650,8 +650,9 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
          method:"GET",
          url:data.url,
      });
-    // console.log(html);
- 
+     console.log(data.url);
+    console.log(html);
+     console.log("errorrrrrrrrrrrrrr");
      const $=cheerio.load(html.data);
      if(domain_name=="herokuapp")
      {
@@ -783,6 +784,6 @@ const triggerNotificationsFromBackend=async()=>{
 }    
 }
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotificationsFromBackend,20000);
+setInterval(triggerNotificationsFromBackend,70000);
 
 
