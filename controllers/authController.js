@@ -632,7 +632,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
     console.log(err);
 }
  };*/
- exports.trackPriceFromBackend=catchAsync(async(data)=>{
+ const trackPriceFromBackend=catchAsync(async(data)=>{
     // console.log(Date.now());
     // console.log(Date.parse(req.body.ob.createdAt))
      if(Date.now()>=Date.parse(data.ob.createdAt)+data.ob.duration*24*60*60*1000)
@@ -785,6 +785,6 @@ const triggerNotificationsFromBackend=async()=>{
 }    
 }
  //setTimeout(triggerNotifications,3000)
-setInterval(triggerNotificationsFromBackend,70000);
+setInterval(triggerNotificationsFromBackend,40000);
 
 
