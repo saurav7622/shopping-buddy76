@@ -61,7 +61,7 @@ const triggerFreshEmail=catchAsync(async(user,arr,current_price)=>{
         subject:'Your Product Price Status',
         html:`<img src="${arr.productPicture}">
                <p>Hye ${user.name.split(" ")[0]},</p>
-               <p>The price of your product (<span style="color:green">${arr.productName}</span>) chosen at ${arr.url.split(".")[1]} get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`
+               <p>The price of your product (<span style="color:green"><a style="color:green">${arr.productName}</a></span>) chosen at ${arr.url.split(".")[1]} get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`
     }
     transporter.sendMail(mailOptions,function(err,data){
         if(err)
@@ -96,7 +96,7 @@ const triggerEmail=catchAsync(async(data,current_price,image_source)=>{
         subject:'Your Product Price Status',
         html:`<img src="${image_source}">
                <p>Hye ${data.obj.name.split(" ")[0]},</p>
-               <p>The price of your product (<span style="color:green">${product_name}</span>) chosen at ${image_source,data.url.split(".")[1]} changed to <span style="color:orange">${current_price}</span></p>`
+               <p>The price of your product (<span style="color:green"><a style="color:green">${product_name}</a></span>) chosen at ${image_source,data.url.split(".")[1]} changed to <span style="color:orange">${current_price}</span></p>`
     }
     transporter.sendMail(mailOptions,function(err,data){
         if(err)
@@ -756,8 +756,7 @@ const triggerNotificationsFromBackend=async()=>{
     
         const users= await User.find();
         
-         console.log(users);
-         console.log("salaaaaaaaaa");
+         
     
         users.forEach(obj=>{
           obj.notifications.forEach(async(ob,index)=>{
