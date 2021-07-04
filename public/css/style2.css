@@ -1,0 +1,234 @@
+body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    font-family:'Raleway',sans-serif;
+    color:#fff;
+}
+
+.banner{
+    position:fixed;
+    height:100vh;
+    width:100%;
+    background:url('https://wallpapercave.com/wp/wp2915052.jpg');
+    background-position:top;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+.banner .navbar-brand{
+    color:#fff;
+    font-size:1.8em;
+    font-weight:700;
+}
+.banner .nav{
+    margin-right:10%;
+}
+.banner .nav li a{
+    color:#aaa;
+    font-size:1.2em;
+
+}
+.overlay{
+ position:fixed;
+ width:100%;
+ height:100vh;   
+ top:0;
+ left:0;
+ background:rgba(0,0,0,0.65);
+ color:white;
+
+}
+.banner .info{
+    margin-top:15%;
+    
+}
+.banner .info p{
+    font-size:1.8em;
+    font-weight:100;
+    color:#aaa;
+    letter-spacing:2px;
+}
+.form-div{
+    margin:5% auto;
+    border-top:15px groove #017fb5;
+    border-bottom:15px groove #017fb5;
+}
+.form-div h1{
+    font-size:3.5em;
+    color:#017bf5;
+    margin:2% 0;
+    font-weight:700;
+}
+.form-div label{
+    font-size:2em;
+    color:#017bf5;
+    font-weight:500;
+    margin:2% 0;
+}
+.form-div input[type="text"],
+.form-div input[type="email"],
+.form-div input[type="password"]{
+    -webkit-appearance:none !important;
+    border:none;
+    border-bottom:1px solid #017fb5
+}
+.form-div input[type="text"]:focus,
+.form-div input[type="email"]:focus,
+.form-div input[type="password"]:focus{
+box-shadow:none;
+border-bottom:#f0f;
+}
+.form-div input[type="submit"]{
+    margin:2% 0;
+    font-size:1.5em;
+    font-weight:660;
+}
+.form_bg{
+    background:linear-gradient(to bottom,#f83600,#fe8c00);
+    height:100vh;
+    display:flex;
+    align-items:center;
+}
+.form_horizontal{
+    font-family:'lato',sans-serif;
+    text-align:center;
+}
+.form_horizontal .form_icon{
+    color:#fff;
+    font-size:100px;
+    line-height:85px;
+    margin:0 0 13px;
+}
+
+.form_horizontal .title{
+    color:#fff;
+    font-size:23px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin:0 0 35px 0;
+}
+
+.form_horizontal .form-group{
+margin:0 0 10px;
+position:relative;
+}
+
+.form_horizontal .input-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:13px;
+    color:#777;
+}
+
+.form_horizontal .form-control{
+    color:#555;
+    background-color:#fff;
+    font-size:13px;
+    letter-spacing:1px;
+    height:37px;
+    padding:2px 15px 2px 35px;
+    border:none;
+    border-radius:50px;
+}
+.form_horizontal .form-control::placeholder{
+    color:rgba(0,0,0,0.7);
+   font-size:14px;
+   text-transform:capitalise;
+}
+.form_horizontal .btn{
+    color:#fff;
+    background-color:#222;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:1px;
+    width:100%;
+    padding:10px 20px;
+    margin:0 0 15px 0;
+    border:none;
+    border-radius:20px;
+    text-transform:uppercase;
+}
+.form_horizontal .form-options{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.form_horizontal .form-options li a{
+    color:#fff;
+    letter-spacing:0.5px;
+    margin:0 0 10px;
+    display:block;
+}
+.form_horizontal .form-options li a i{
+font-size:12px;
+
+}
+/*Style 2         */
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+body{
+    background:#ccc;
+}
+.form-container{
+    display:flex;
+    height:98vh;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
+
+.form-container .form-wrap{
+    background:#fff;
+    width:40%;
+    padding:15px 20px;
+}
+.form-container .form-wrap h2{
+    text-align:center;
+    margin:0px 0px 20px;
+    font-size:17px;
+    color:black;
+}
+.ForgotPassword{
+    text-align:center;
+    margin:0px 0px 20px;
+    font-size:17px;  
+}
+.form-container .form-wrap .form-box{
+margin:0px 0px 15px;
+}
+.form-container .form-wrap .form-box input[type="email"]{
+padding:5px 8px;
+border-radius:3px;
+border:1px solid #353535;
+width:100%;
+}
+.form-container .form-wrap .form-box input[type="password"]{
+    padding:5px 8px;
+    border-radius:3px;
+    border:1px solid #353535;
+    width:100%;
+    }
+.form-container .form-wrap .form-submit{
+    display:flex;
+    justify-content:center;
+}
+.form-container .form-wrap .form-submit input[type="submit"]{
+    padding:4px 10px;
+    border:none;
+    border-radius:2px;
+    background:#353535;
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+    font-size:16px;
+}
+
+
+
