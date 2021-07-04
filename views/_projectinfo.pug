@@ -1,21 +1,15 @@
-
-div(style='position:relative;width:825px;height:100vh;background-color:#c60021;')
-  div(style="position:relative;top:150px;left:120px;font-family: 'Bree Serif', serif;color:#f6f6f8;font-size:30px;")
-    p Tired of continuosly logging into
-    p  various e-commerce sites for 
-    p checking if your chosen 
-    p product price has been reduced?
-    img(src='./img/google.jpg' style='position:absolute;top:40px;right:140px;z-index:2')
-  div(style='position:absolute;top:410px;left:100px;float:left;z-index:2')
-    //-img(src='./img/amazon_logo.png')
-    img(src='./img/snapdeal_logo.jpg' style='margin-left:60px')
-    img(src='./img/flipkart_logo.jpg' style='margin-left:20px')
-    //-img(src='./img/myntra.jpg' style='margin-left:20px')
-div(style='position:absolute;top:40px;left:825px;width:565px;height:100vh;background-color:#9fa8a3;')
-  div(style="position:relative;top:150px;left:15px;color:#431c5d;font-family: 'Stint Ultra Condensed', cursive;font-size:30px;text-align:center;")
-    p So without any ado,
-    p(style='position:relative;top:-20px') sign up now
-    p(style='position:relative;top:-40px') to get notifications
-    p(style='position:relative;top:-60px') if the price of your chosen product reduces.
-  p(style="position:relative;top:250px;color:#FA292A;font-family:'Times New Roman', Times, serif;text-align:center;font-size:21px;")
-    | Further details about the process are given in your accounts page.
+.container-fluid.banner
+  .overlay
+    .row
+      .col-md-12
+        nav.navbar
+          .navbar-brand(style='color:#fff')
+            | Shopping Buddy
+          ul.nav
+            li.nav-item
+              a.nav-link(href='#') Sign Up
+            li.nav-item
+              a.nav-link(href='#') Log In
+      .col-md-6.offset-md-3.info
+        p.text-center
+          | Sign up now to get emails and current status of the price of your chosen products from Flipkart and Snapdeal
