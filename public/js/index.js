@@ -10,7 +10,7 @@ import {saveForgotPassword} from './SaveForgotResetPassword.js';
 //import { updatePassword } from '../../controllers/authController';
 //Initializing buttons
 const logInBtn=document.querySelector('.form_horizontal');
-const signUpBtn=document.getElementById('sign-up-button');
+const signUpBtn=document.getElementById('form-register');
 const notifyMeBtn=document.querySelector('.notify-me-btn');
 const sideBarBtn=document.getElementById("sidebar");
 const logOutBtn=document.querySelector('.log-out-btn');
