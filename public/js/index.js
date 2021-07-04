@@ -43,7 +43,7 @@ if(signUpBtn)
 signUpBtn.addEventListener('submit',e=>{
     e.preventDefault();
    // alert("Trying to sign up!!!!");
-const name=document.querySelector(".form_horizontal").value;
+const name=document.getElementById("sign-up-name").value;
 const email=document.getElementById("sign-up-email").value;
 const password=document.getElementById("sign-up-password").value;
 const confirm_password=document.getElementById("confirm-your-password").value;

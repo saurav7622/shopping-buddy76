@@ -9310,7 +9310,7 @@ if (logInBtn) logInBtn.addEventListener('submit', function (e) {
 if (signUpBtn) signUpBtn.addEventListener('submit', function (e) {
   e.preventDefault(); // alert("Trying to sign up!!!!");
 
-  var name = document.querySelector(".form_horizontal").value;
+  var name = document.getElementById("sign-up-name").value;
   var email = document.getElementById("sign-up-email").value;
   var password = document.getElementById("sign-up-password").value;
   var confirm_password = document.getElementById("confirm-your-password").value;
