@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   meta(http-equiv='x-ua-compatible' content='ie-edge')
-  link(rel='stylesheet' href='./css/style.css')
+  link(rel='stylesheet' href='./css/style2.css')
   link(rel='shortcut icon' type='image/png' href='./img/pikachu.png')
   link(rel='preconnect' href='https://fonts.gstatic.com')
   link(href='https://fonts.googleapis.com/css2?family=Pattaya&display=swap' rel='stylesheet')
@@ -26,27 +26,31 @@ head
     script(src="/js/bundle.js")
   else
 
-    body(style="background-color:#dddfd4")
-      header(style='height:40px;background-color:black;width:100%')
-        h1(style="position:absolute;top:5px;left:545px;font-family: 'Pattaya', sans-serif;color:#66ff33;font-size:170%") Shopping Buddy
-      .modal1
-        h1(style='position:absolute;top:11px;left:17px;font-size:22px;') Sign Up
-        form(autocomplete='off' id="sign-up-button")
-          .form-group
-            input#sign-up-name.form-control(autocomplete='off' name='new-name' placeholder='Full Name' style='position:relative;left:-70px;top:-30px;width:400px;height:40px;font-size:15px;')
-          .form-group
-            input#sign-up-email.form-control(autocomplete='off' name='new-email' type='email' aria-describedby='emailHelp' placeholder='Email' style='position:relative;top:-10px;left:-70px;width:400px;height:40px;font-size:15px;')
-          .form-group
-            input#sign-up-password.form-control(autocomplete='off' type='password' name='new-password' placeholder='Password' style='position:relative;left:-70px;top:10px;width:400px;height:40px;font-size:15px;')
-          .form-group
-            input#confirm-your-password.form-control(autocomplete='off' type='password' name='confirm-new-password' placeholder='Confirm your password' style='position:relative;left:-70px;top:30px;width:400px;height:40px;font-size:15px;')
-          .form-group
-              button.btn-danger(autocomplete='off' type='submit' style='position:relative;top:55px;width:400px;height:34px;font-size:15px;left:-70px;top:45px;' value='Create your account' name='sign_up' id="try") Create your account
-          p(style='position:relative;top:60px;font-size:17px;left:-70px')
-            | If you already have an account,please 
-            span(style='position:relative;top:-25px;left:285px;')
-              | log in.
-              span
+    body(style="margin:0;padding:0;background-color:#fff")
+      .container
+        .row
+          .col-md-4.offset-md-4.form-div
+            form#form-register
+              h1.text-center REGISTER
+              .form-group
+                label(for='username')
+                  | Username
+                input.form-control.form-control-lg(type='text' name='username' placeholder='Enter the username' required='')
+              .form-group
+                label(for='email')
+                  | Email
+                input.form-control.form-control-lg(type='email' name='email' placeholder='Enter the email' required='')
+              .form-group
+                label(for='password')
+                  | Password
+                input.form-control.form-control-lg(type='password' name='password' placeholder='Enter the password' required='')
+              .form-group
+                label(for='confirmpass')
+                  | Confirm Password
+                input.form-control.form-control-lg(type='password' name='confirmpass' placeholder='Confirm the password' required='')
+              .form-group
+                input.btn.btn-primary.btn-block(type='submit' name='submit' form='form-register' value='Create your account' style='margin:auto;width:100%;margin-top:2%;margin-bottom:2%;')
+
           
           //-script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js")
           //-script(src="/js/signup.js")
