@@ -9286,7 +9286,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 //import { updatePassword } from '../../controllers/authController';
 //Initializing buttons
-var logInBtn = document.getElementById('log-in-button');
+var logInBtn = document.querySelector('.form_horizontal');
 var signUpBtn = document.getElementById('sign-up-button');
 var notifyMeBtn = document.querySelector('.notify-me-btn');
 var sideBarBtn = document.getElementById("sidebar");
