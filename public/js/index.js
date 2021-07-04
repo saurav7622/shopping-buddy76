@@ -9,7 +9,7 @@ import {forgotPassword} from './ForgotPassword.js';
 import {saveForgotPassword} from './SaveForgotResetPassword.js';
 //import { updatePassword } from '../../controllers/authController';
 //Initializing buttons
-const logInBtn=document.querySelector('.signin');
+const logInBtn=document.querySelector('log-in-button');
 const signUpBtn=document.getElementById('sign-up-button');
 const notifyMeBtn=document.querySelector('.notify-me-btn');
 const sideBarBtn=document.getElementById("sidebar");
