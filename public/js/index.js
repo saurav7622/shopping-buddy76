@@ -29,7 +29,7 @@ const overlay = document.querySelector('.overlay');
 
 
 if(logInBtn)
-logInBtn.addEventListener('click',e=>{
+logInBtn.addEventListener('submit',e=>{
     e.preventDefault();
     alert('hello');
 const email=document.getElementById("log-in-email").value;

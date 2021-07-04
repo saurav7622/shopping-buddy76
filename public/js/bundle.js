@@ -9299,7 +9299,7 @@ var saveForgottenResetBtn = document.getElementById("Forgot-Reset-Btn");
 var tracks = document.querySelector(".tracks");
 var overlay = document.querySelector('.overlay'); //functions
 
-if (logInBtn) logInBtn.addEventListener('click', function (e) {
+if (logInBtn) logInBtn.addEventListener('submit', function (e) {
   e.preventDefault();
   alert('hello');
   var email = document.getElementById("log-in-email").value;
