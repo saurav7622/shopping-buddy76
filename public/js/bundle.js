@@ -9304,6 +9304,7 @@ if (logInBtn) logInBtn.addEventListener('click', function (e) {
   alert('hello');
   var email = document.getElementById("log-in-email").value;
   var password = document.getElementById("log-in-password").value;
+  alert(email);
   (0, _login.login)(email, password);
 });
 if (signUpBtn) signUpBtn.addEventListener('submit', function (e) {
