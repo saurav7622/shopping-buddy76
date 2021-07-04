@@ -29,8 +29,9 @@ const overlay = document.querySelector('.overlay');
 
 
 if(logInBtn)
-logInBtn.addEventListener('submit',e=>{
+logInBtn.addEventListener('click',e=>{
     e.preventDefault();
+    alert('hello');
 const email=document.getElementById("log-in-email").value;
 const password=document.getElementById("log-in-password").value;
 login(email,password);
