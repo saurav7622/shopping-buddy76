@@ -8488,7 +8488,7 @@ var login = /*#__PURE__*/function () {
               hideAlert();
               var color;
               if (type === 'error') color = '#a64452';else color = '#4bb543';
-              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"position:relative;display:block;margin-left:auto;margin-right:auto;height:14%;background-color:").concat(color, ";\">").concat(msg, "</div>");
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:18%;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
