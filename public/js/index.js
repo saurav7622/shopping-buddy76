@@ -109,7 +109,7 @@ if(saveForgottenResetBtn)
 if(toggleButton)
 toggleButton.addEventListener('click',(e)=>{
     e.preventDefault();
-    alert("hello");
+    //alert("hello");
     navbarLinks.classList.toggle('active');
 });
 

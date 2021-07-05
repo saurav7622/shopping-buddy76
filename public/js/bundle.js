@@ -9432,8 +9432,8 @@ if (saveForgottenResetBtn) {
 }
 
 if (toggleButton) toggleButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  alert("hello");
+  e.preventDefault(); //alert("hello");
+
   navbarLinks.classList.toggle('active');
 }); //setInterval(alert("hye"),5000);
 //setInterval(AddNotifications,6000000);
