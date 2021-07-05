@@ -17,7 +17,7 @@ export const resetPassword=async(currentPassword,newPassword,newConfirmPassword)
         color='#4bb543';
         const markup=`<div class="alert alert--${type}" style="display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:${color};">${msg}</div>`;
         document.querySelector('body').insertAdjacentHTML('afterbegin',markup);
-        
+        window.setTimeout(hideAlert,5000);
     }
     try{
         const res=await axios({

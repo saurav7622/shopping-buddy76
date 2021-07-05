@@ -8810,6 +8810,7 @@ var resetPassword = /*#__PURE__*/function () {
               if (type === 'error') color = '#a64452';else color = '#4bb543';
               var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+              window.setTimeout(hideAlert, 5000);
             };
 
             _context.prev = 2;
