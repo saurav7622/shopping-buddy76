@@ -31,11 +31,10 @@ const overlay = document.querySelector('.overlay');
 if(logInBtn)
 logInBtn.addEventListener('submit',e=>{
     e.preventDefault();
-    alert('hello');
+    
 const email=document.getElementById("log-in-email").value;
 const password=document.getElementById("log-in-password").value;
-alert(email);
-login(email,password);
+
 });
 
 

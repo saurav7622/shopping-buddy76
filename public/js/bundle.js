@@ -9303,11 +9303,8 @@ var overlay = document.querySelector('.overlay'); //functions
 
 if (logInBtn) logInBtn.addEventListener('submit', function (e) {
   e.preventDefault();
-  alert('hello');
   var email = document.getElementById("log-in-email").value;
   var password = document.getElementById("log-in-password").value;
-  alert(email);
-  (0, _login.login)(email, password);
 });
 if (signUpBtn) signUpBtn.addEventListener('submit', function (e) {
   e.preventDefault(); // alert("Trying to sign up!!!!");
