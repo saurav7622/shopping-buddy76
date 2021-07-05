@@ -15,7 +15,7 @@ body
       div(class="hidden" id="delete-confirmation-form" style="position:fixed;width:350px;height:250px;z-index:10;background-color:white;top: 50%;left: 50%;transform: translate(-50%, -50%);")
 
       each notification,index in user.notifications
-        div(style='position:relative;float:left;background-color:white;width:350px;height:410px;margin:45px 25px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
+        div(style='position:relative;float:left;background-color:white;width:350px;height:440px;margin:45px 25px;z-index:1;border-style:solid;border-width:2px;border-radius:20px;')
           img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
           a(style='position:relative;display:block;text-align:left;color:blue;text-decoration:none;' id="productName" href=`${user.notifications[index].url}`)=`${notification.productName}`
           h1(style='position:relative;top:25px;font-size:20px;')=`Product chosen at ${notification.productCompany}`
