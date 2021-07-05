@@ -15,6 +15,8 @@ nav.navbar
         a(href='/resetPassword') Reset Password
       li
         a(href='#' type='button' data-bs-toggle="tooltip" data-bs-placement="bottom" title=`Signed in as ${user.email}`) #{user.name}
+      li
+        a(class="log-out-btn") Logout
 .form-container
   form.form-wrap(action='#' method='POST' style='position:relative;margin-top:-4%').notify-me-btn
     h2.ForgotPassword(style='text-align:left;margin:0px 0px 20px;font-size:20px;') Notify Me
