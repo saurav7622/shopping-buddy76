@@ -13,7 +13,18 @@ body
       nav.navbar(style="background-color:#333;")
         .brand-title
           | Shopping Buddy
- 
+        .navbar-links
+          ul
+            li
+              a(href='/') Notify Me
+            li
+              a(href='/currentStatus') Current Status
+            li
+              a(href='/resetPassword') Reset Password
+            li
+              a(href='#' type='button' data-bs-toggle="tooltip" data-bs-placement="bottom" title=`Signed in as ${user.email}`) #{user.name}
+            li
+              a(class="log-out-btn") Logout
       p(style='text-align:center;font-size:26px;color:blue;text-decoration:underline') Current Status
       p(class="hidden" class="no-of-buttons")=`${user.notifications.length}`
       div(class="hidden" id="delete-confirmation-form" style="position:fixed;width:350px;height:250px;z-index:10;background-color:white;top: 50%;left: 50%;transform: translate(-50%, -50%);")
