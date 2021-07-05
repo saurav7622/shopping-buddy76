@@ -170,4 +170,31 @@ margin:5px 0px;
 a#productName:hover{
   text-decoration:underline;
 }
-  
+
+#Track{
+  position:relative;
+  float:left;
+  background-color:white;
+  width:350px;
+  height:500px;
+  margin:45px 25px;
+  z-index:1;
+  border-style:solid;
+  border-width:2px;
+  border-radius:20px;
+  }
+
+@media(max-width:600px){
+  #Track{
+position:relative;
+float:left;
+background-color:white;
+width:350px;
+height:500px;
+margin:45px 5px;
+z-index:1;
+border-style:solid;
+border-width:2px;
+border-radius:20px;
+  }
+}
