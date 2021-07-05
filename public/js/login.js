@@ -9,7 +9,13 @@ export const login=async(email,password)=>{
     
     const showAlert=(type,msg)=>{
         hideAlert();
-        const markup=`<div class="alert alert--${type}">${msg}</div>`;
+        let color;
+        if(type==='error')
+         color='#a64452';
+        else
+        color='#4bb543';
+        const markup=`<div class="alert alert--${type}" style="display:flex;justify-content:center;
+        align-items:center;width:30%;height:10%;background-color:${color};">${msg}</div>`;
         document.querySelector('body').insertAdjacentHTML('afterbegin',markup);
         window.setTimeout(hideAlert,5000);
     }

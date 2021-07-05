@@ -8486,7 +8486,9 @@ var login = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:flex;justify-content:center;\n        align-items:center;width:30%;height:10%;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
