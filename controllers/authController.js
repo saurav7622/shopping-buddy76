@@ -652,7 +652,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
      });
      console.log(data.url);
     console.log(html);
-     console.log("errorrrrrrrrrrrrrr");
+     //console.log("errorrrrrrrrrrrrrr");
      const $=cheerio.load(html.data);
      if(domain_name=="herokuapp")
      {
