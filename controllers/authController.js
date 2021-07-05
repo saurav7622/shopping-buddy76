@@ -650,8 +650,7 @@ exports.updatePassword=catchAsync(async(req,res,next)=>{
          method:"GET",
          url:data.url,
      });
-     console.log(data.url);
-    console.log(html);
+
      //console.log("errorrrrrrrrrrrrrr");
      const $=cheerio.load(html.data);
      if(domain_name=="herokuapp")

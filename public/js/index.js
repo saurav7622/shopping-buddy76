@@ -21,7 +21,8 @@ const sendResetLink=document.getElementById("send-forgot-reset-link");
 const saveForgottenResetBtn=document.getElementById("Forgot-Reset-Btn");
 const tracks=document.querySelector(".tracks");
 const overlay = document.querySelector('.overlay');
-
+const toggleButton=document.getElementsByClassName('toggle-button')[0];
+const navbarLinks=document.getElementsByClassName('navbar-links')[0];
 
 //functions
 
@@ -50,7 +51,7 @@ signup(name,email,password,confirm_password);
 });
 
 if(notifyMeBtn)
-notifyMeBtn.addEventListener('click',e=>{
+notifyMeBtn.addEventListener('submit',e=>{
     e.preventDefault();
 const url=document.getElementById("url").value;
 const duration=document.getElementById("duration").value;
@@ -104,6 +105,12 @@ if(saveForgottenResetBtn)
 
     })
 }
+
+if(toggleButton)
+toggleButton.addEventListener('click',(e)=>{
+    e.preventDefault();
+    navbarLinks.classList.toggle('active');
+});
 
 
 
