@@ -10,7 +10,12 @@ export const forgotPassword=async(email)=>{
     
      const showAlert=(type,msg)=>{
         hideAlert();
-        const markup=`<div class="alert alert--${type}">${msg}</div>`;
+        let color;
+        if(type==='error')
+         color='#a64452';
+        else
+        color='#4bb543';
+        const markup=`<div class="alert alert--${type}" style="display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:${color};">${msg}</div>`;
         document.querySelector('body').insertAdjacentHTML('afterbegin',markup);
         window.setTimeout(hideAlert,5000);
     }

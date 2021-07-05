@@ -8566,7 +8566,9 @@ var logout = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
@@ -8635,7 +8637,9 @@ var signup = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
@@ -8716,7 +8720,9 @@ var addNotifications = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
@@ -8793,8 +8799,6 @@ var resetPassword = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            alert(currentPassword);
-
             hideAlert = function hideAlert() {
               var el = document.querySelector('.alert');
               if (el) el.parentElement.removeChild(el);
@@ -8802,13 +8806,14 @@ var resetPassword = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
-              window.setTimeout(hideAlert, 5000);
             };
 
-            _context.prev = 3;
-            _context.next = 6;
+            _context.prev = 2;
+            _context.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
               url: '/api/v1/updateMyPassword',
@@ -8819,27 +8824,27 @@ var resetPassword = /*#__PURE__*/function () {
               }
             });
 
-          case 6:
+          case 5:
             res = _context.sent;
 
             if (res.data.status == 'success') {
               showAlert('success', 'Password updated successfully');
             }
 
-            _context.next = 13;
+            _context.next = 12;
             break;
 
-          case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](3);
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](2);
             showAlert('error', _context.t0.response.data.message);
 
-          case 13:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[3, 10]]);
+    }, _callee, null, [[2, 9]]);
   }));
 
   return function resetPassword(_x, _x2, _x3) {
@@ -8879,7 +8884,9 @@ var forgotPassword = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
@@ -8953,7 +8960,9 @@ var saveForgotPassword = /*#__PURE__*/function () {
 
             showAlert = function showAlert(type, msg) {
               hideAlert();
-              var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+              var color;
+              if (type === 'error') color = '#a64452';else color = '#4bb543';
+              var markup = "<div class=\"alert alert--".concat(type, "\" style=\"display:block;margin:auto;text-align:center;height:22%;font-size:18px;background-color:").concat(color, ";\">").concat(msg, "</div>");
               document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
               window.setTimeout(hideAlert, 5000);
             };
