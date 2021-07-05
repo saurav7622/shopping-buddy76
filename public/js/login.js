@@ -14,7 +14,7 @@ export const login=async(email,password)=>{
          color='#a64452';
         else
         color='#4bb543';
-        const markup=`<div class="alert alert--${type}" style="margin:auto;width:100%;height:14%;background-color:${color};">${msg}</div>`;
+        const markup=`<div class="alert alert--${type}" style="display:block;margin:auto;height:14%;background-color:${color};">${msg}</div>`;
         document.querySelector('body').insertAdjacentHTML('afterbegin',markup);
         window.setTimeout(hideAlert,5000);
     }
