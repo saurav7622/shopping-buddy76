@@ -35,7 +35,7 @@ logInBtn.addEventListener('submit',e=>{
     
 const email=document.getElementById("log-in-email").value;
 const password=document.getElementById("log-in-password").value;
-
+login(email,password);
 });
 
 
