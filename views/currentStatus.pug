@@ -16,7 +16,7 @@ body
 
       each notification,index in user.notifications
         div(id="Track")
-          img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
+          img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:50%;height:50%;z-index:1;' src=`${notification.productPicture}`)
           a(style='position:relative;display:block;text-align:left;color:blue;text-decoration:none;' id="productName" href=`${user.notifications[index].url}`)=`${notification.productName}`
           h1(style='position:relative;top:25px;font-size:20px;')=`Product chosen at ${notification.productCompany}`
           h2(style='position:relative;font-size:18px;top:35px;')=`Currently available at Rs ${notification.price}`
