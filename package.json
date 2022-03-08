@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "dev":"nodemon server.js",
+    "dev": "nodemon server.js",
     "start:prod": "set NODE_ENV=production && nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
@@ -26,6 +26,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
+    "googleapis": "^95.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "mongoose": "^5.12.13",
