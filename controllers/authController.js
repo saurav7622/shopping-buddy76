@@ -12,14 +12,6 @@ const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 
-const oAuth2Client = new google.auth.OAuth2(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
-  process.env.REDIRECT_URI
-);
-
-oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
-
 dotenv.config({ path: "./../config.env" });
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -50,6 +42,14 @@ const createSendToken = (user, statusCode, req, res) => {
     },
   });
 };
+
+const oAuth2Client = new google.auth.OAuth2(
+  process.env.CLIENT_ID,
+  process.env.CLIENT_SECRET,
+  process.env.REDIRECT_URI
+);
+
+oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
   let product_name;
   if (arr.url.split(".")[1] == "herokuapp") product_name = "demo-product";
@@ -65,7 +65,7 @@ const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: process.env.EMAIL,
+      user: "shoppingbuddy76@gmail.com",
       //pass: process.env.EMAIL_PASSWORD,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
@@ -85,13 +85,13 @@ const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
       arr.url.split(".")[1]
     } get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`,
   };
-  transporter.sendMail(mailOptions, function (err, data) {
-    if (err) {
-      console.log("Error occurs");
-    } else {
-      console.log("Email sent!!");
-    }
-  });
+  console.log("saaaaaaaaaaaaaaaala");
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (err) {
+    console.log(err);
+  }
+  console.log("madddddddddddddddaaaaar");
 });
 const triggerEmail = catchAsync(async (data, current_price, image_source) => {
   let product_name;
@@ -108,7 +108,7 @@ const triggerEmail = catchAsync(async (data, current_price, image_source) => {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: process.env.EMAIL,
+      user: "shoppingbuddy76@gmail.com",
       //pass: process.env.EMAIL_PASSWORD,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
@@ -128,13 +128,11 @@ const triggerEmail = catchAsync(async (data, current_price, image_source) => {
       (image_source, data.url.split(".")[1])
     } changed to <span style="color:orange">${current_price}</span></p>`,
   };
-  transporter.sendMail(mailOptions, function (err, data) {
-    if (err) {
-      console.log("Error occurs");
-    } else {
-      console.log("Email sent!!");
-    }
-  });
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (err) {
+    console.log(err);
+  }
   const user = await User.findOne({ email: data.obj.email });
   //console.log(req.body.index);
   user.notifications[data.index].price = current_price.split(" ")[1] * 1;
