@@ -42,14 +42,19 @@ const createSendToken = (user, statusCode, req, res) => {
     },
   });
 };
-
+const CLIENT_ID =
+  "117776170150-abcqbitk6fvgg657ngqi6p4l9e58dg61.apps.googleusercontent.com";
+const CLIENT_SECRET = "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";
+const REDIRECT_URI = "https://developers.google.com/oauthplayground";
+const REFRESH_TOKEN =
+  "1//04bi3-VxltJGECgYIARAAGAQSNwF-L9IrJ6ne6Hduqn8kMf0oyC4P-f-TR0FQbABU26_ZmjCFkJjzRc1pHhSibzIjceDzjsarxFg";
 const oAuth2Client = new google.auth.OAuth2(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
-  process.env.REDIRECT_URI
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
 );
 
-oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
   let product_name;
   if (arr.url.split(".")[1] == "herokuapp") product_name = "demo-product";
@@ -67,9 +72,9 @@ const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
       type: "OAuth2",
       user: "shoppingbuddy76@gmail.com",
       //pass: process.env.EMAIL_PASSWORD,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
+      clientId: CLIENT_ID,
+      clientSecret: CLIENT_SECRET,
+      refreshToken: REFRESH_TOKEN,
       accessToken: accessToken,
     },
   });
@@ -85,13 +90,11 @@ const triggerFreshEmail = catchAsync(async (user, arr, current_price) => {
       arr.url.split(".")[1]
     } get saved at <span style="color:orange"> Rs ${arr.price}</span></p>`,
   };
-  console.log("saaaaaaaaaaaaaaaala");
   try {
     await transporter.sendMail(mailOptions);
   } catch (err) {
     console.log(err);
   }
-  console.log("madddddddddddddddaaaaar");
 });
 const triggerEmail = catchAsync(async (data, current_price, image_source) => {
   let product_name;
@@ -110,9 +113,9 @@ const triggerEmail = catchAsync(async (data, current_price, image_source) => {
       type: "OAuth2",
       user: "shoppingbuddy76@gmail.com",
       //pass: process.env.EMAIL_PASSWORD,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
+      clientId: CLIENT_ID,
+      clientSecret: CLIENT_SECRET,
+      refreshToken: REFRESH_TOKEN,
       accessToken: accessToken,
     },
   });
@@ -249,6 +252,7 @@ exports.addNotifications = catchAsync(async (req, res, next) => {
       productPicture: image_source,
       productName: product_name,
       price: Price * 1,
+      timeStamp: String(Date.now()),
     };
     if (!arr.url) return next(newAppError("Please provide the url"));
     if (
@@ -394,9 +398,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       type: "OAuth2",
       user: process.env.EMAIL,
       //pass: process.env.EMAIL_PASSWORD,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
+      clientId: CLIENT_ID,
+      clientSecret: CLIENT_SECRET,
+      refreshToken: REFRESH_TOKEN,
       accessToken: accessToken,
     },
   });

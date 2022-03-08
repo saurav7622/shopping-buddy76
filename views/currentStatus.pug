@@ -31,11 +31,11 @@ body
 
       each notification,index in user.notifications
         div(id="Track")
-          img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:50%;height:50%;z-index:1;' src=`${notification.productPicture}`)
+          img(style='position:relative;display:block;margin-left:auto;margin-right:auto;background-color:#4b072c;width:60%;height:50%;z-index:1;' src=`${notification.productPicture}`)
           a(style='position:relative;display:block;text-align:left;color:blue;text-decoration:none;' id="productName" href=`${user.notifications[index].url}`)=`${notification.productName}`
           h1(style='position:relative;top:25px;font-size:20px;')=`Product chosen at ${notification.productCompany}`
           h2(style='position:relative;font-size:18px;top:35px;')=`Currently available at Rs ${notification.price}`
-          h2(style='position:relative;font-size:18px;top:40px;')=`Notification ends in ${notification.duration} days `
+          h2(style='position:relative;font-size:18px;top:40px;')=`Notification ends in ${notification.duration*1-Math.floor((Date.now()*1-notification.timeStamp*1)/(24*60*60*1000))} days `
     
 
         script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous")

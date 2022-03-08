@@ -48,6 +48,9 @@ const userSchema=new mongoose.Schema({
         },
         productName:{
           type:String
+        },
+        timeStamp:{
+          type:String
         }
 
       }
