@@ -22,7 +22,10 @@ export const logout = async () => {
     });
     if ((res.data.status = "success")) location.reload(true);
     window.setTimeout(alert("Logged out successfully!!"), 1000);
-    window.location.replace("https://shopping-buddy76.herokuapp.com/");
+    window.setTimeout(
+      window.location.replace("https://shopping-buddy76.herokuapp.com/"),
+      1500
+    );
   } catch (err) {
     console.log(err.response);
     showAlert("error", "Error logging out! Try again.");
