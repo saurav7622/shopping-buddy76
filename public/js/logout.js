@@ -20,12 +20,12 @@ export const logout = async () => {
       method: "GET",
       url: "/api/v1/logout",
     });
-    if ((res.data.status = "success")) location.reload(true);
-    window.setTimeout(alert("Logged out successfully!!"), 1000);
-    window.setTimeout(
-      window.location.replace("https://shopping-buddy76.herokuapp.com/"),
-      1500
-    );
+    if ((res.data.status = "success")) {
+      showAlert("success", "Logged out successfully.");
+      window.setTimeout(() => {
+        location.assign("/");
+      }, 1500);
+    }
   } catch (err) {
     console.log(err.response);
     showAlert("error", "Error logging out! Try again.");
