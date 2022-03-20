@@ -44,15 +44,15 @@ exports.getCurrentStatus = async (req, res) => {
   let notifications = [];
   for (let i = 0; i < user.notifications.length; i++) {
     if (
-      user.notifications[i].timestamp * 1 +
-        user.notifications[i].duration * 24 * 60 * 60 * 1000 <
-      Date.now() * 1
-    )
-      continue;
-    notifications.push(user.notifications[i]);
+      Date.now() >=
+      Date.parse(user.notifications[i].createdAt) +
+        user.notifications[i].duration * 24 * 60 * 60 * 1000
+    ) {
+      user.notifications.splice(0, 1);
+      user.notifications.splice(i, 1);
+      await user.save({ validateBeforeSave: false });
+    }
   }
-  await User.updateOne({ _id: req.params.userId }, { notifications });
-  await user.save({ validateBeforeSave: false });
   res.status(200).render("currentStatus", {
     title: "Get Current Status",
   });
