@@ -52,6 +52,7 @@ exports.getCurrentStatus = async (req, res) => {
     notifications.push(user.notifications[i]);
   }
   await User.updateOne({ _id: req.params.userId }, { notifications });
+  await user.save({ validateBeforeSave: false });
   res.status(200).render("currentStatus", {
     title: "Get Current Status",
   });

@@ -10,7 +10,7 @@ nav.navbar(style="background-color:#333;")
       li
         a(href='/') Notify Me
       li
-        a(href=`/currentStatus/${user._id}`) Current Status
+        a(href=`/currentStatus/${user._id}` class="current-status-link") Current Status
       li
         a(href='/resetPassword') Reset Password
       li
@@ -21,8 +21,8 @@ nav.navbar(style="background-color:#333;")
   form.form-wrap( style='position:relative;margin-top:-4%').notify-me-btn
     h2.ForgotPassword(style='text-align:left;margin:0px 0px 20px;font-size:20px;') Notify Me
     .form-box(style='height:6%')
-      input(type='text' placeholder='Enter the url' required='' id="url" )
+      input(type='text' placeholder='Enter the url' required='' id="url")
     .form-box
-      input(type='text' placeholder='Enter the duration(in days)' required='' id="duration")
+      input(type='text' placeholder='Enter the duration(in days)' required='' id="duration" min="1")
     .form-submit
       input(type='submit' value='Add')
