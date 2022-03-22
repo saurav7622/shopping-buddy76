@@ -37,25 +37,25 @@ So this web app comes very handy in these situations.Through this applications, 
 
 ## Screenshots
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/1.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/1.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/2.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/2.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/3.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/3.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/4.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/4.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/5.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/5.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/6.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/6.png)
 
 
-![App Screenshot](https://github.com/saurav7622/saurav7622-shopping-buddy76/blob/master/screenshots/7.png)
+![App Screenshot](https://github.com/saurav7622/shopping-buddy76/blob/master/screenshots/7.png)
 
 
 
