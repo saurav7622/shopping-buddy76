@@ -12,10 +12,10 @@ A full stack web application which which enables users to set the url of product
 
 **View Engine:** Pug
 
-**Hoisting Url:**   https://shopping-buddy76.herokuapp.com/
+**Hoisting Url:**   https://shopping-buddy.onrender.com/
 
 
-## Application link [here]( https://shopping-buddy76.herokuapp.com/)
+## Application link [here]( https://shopping-buddy.onrender.com/)
 
 
 ## Motivation Behind Shopping Buddy
